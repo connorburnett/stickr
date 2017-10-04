@@ -1,11 +1,11 @@
 <template>
   <div class="hello">
-    <h1>Welcome to Stickr</h1>
+    <h1 class="titlefont">Welcome to Stickr</h1>
 
     <div class="heading">
-      <p>Get Started</p>
-      <button class="btn btn-default b" @click="showLogin">LOGIN</button>
-      <button class="btn btn-default b" @click="showSignup">SIGN UP</button>
+      <p>Get Started Today!</p>
+      <button class="btn btn-default b" @click="showLogin"><div class="stylebtn">Login</div></button>
+      <button class="btn btn-default b" @click="showSignup"><div class="stylebtn">Sign Up</div></button>
 
 
       <div id="stuff">
@@ -13,24 +13,15 @@
         <form v-show="seen" @submit.prevent="createUser()">
           <input class="formcss" type="text" v-model="credentials.email" placeholder="email">
           <input class="formcss" type="password" v-model="credentials.password" placeholder="password">
-          <button class="btn btn-default c" type="submit">CREATE</button>
+          <button class="btn btn-default c" type="submit"><div class="stylebtn">Create</div></button>
         </form>
         <form v-show="unameSeen" @submit.prevent="loginUser()">
           <input class="formcss" type="text" v-model="credentials.email" placeholder="email">
           <input class="formcss" type="password" v-model="credentials.password" placeholder="password">
-          <button class="btn btn-default c" type="submit">LOGIN</button>
+          <button class="btn btn-default c" type="submit"><div class="stylebtn">Go</div></button>
         </form>
       </div>
     </div>
-
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-12">
-        </div>
-      </div>
-    </div>
-
-    <hr>
   </div>
 </template>
 
@@ -113,5 +104,29 @@
 
   a {
     color: #42b983;
+  }
+
+  .titlefont {
+    font-family: 'Lobster', cursive;
+    font-size: 50px;
+    color: #42234F;
+  }
+
+  .hello {
+    background-color: pink;
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+
+  p {
+    font-size: 25px;
+    font-family: 'Francois One', sans-serif;
+    color: #42234f
+  }
+
+  .stylebtn{
+    font-family: 'Lobster', cursive;
+    font-size: 20px;
+    color: #42234F;
   }
 </style>

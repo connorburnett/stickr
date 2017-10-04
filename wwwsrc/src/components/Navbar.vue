@@ -12,25 +12,24 @@
                           <span class="icon-bar"></span>
                         </button> -->
                     <div>
-                        <router-link class="navbar-brand" :to="{name: 'Home'}">Stickr</router-link>
+                        <router-link class="navbar-brand" :to="{name: 'Home'}"><div class="color-thing">Stickr</div></router-link>
                     </div>
                 </div>
 
                 <!-- Regular view -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <!-- Begin if statement to check if user is logged in -->
+
                     <div class="nav navbar-nav navbar-right align-everything">
-                        <div class="menu" v-if="credentials.email != null">
-                            <router-link :to="'/profile/' + credentials._id">Profile</router-link>
-                            <li role="separator" class="divider"></li>
-                            <div @click="logout"><a href="#">Logout</a></div>
-                        </div>
-                        <!---->
+
+                        <ul class="menu" v-if="credentials.email != null">
+                            <router-link :to="'/profile/' + credentials._id" class="navbar-brand navbar-brand2"><div class="color-thing">Profile</div></router-link>
+                            <div class="navbar-brand navbar-brand2" @click="logout"><a href="#"><div class="color-thing">Logout</div></a></div>
+                        </ul>
+
                         <div class="menu" v-else>
                         </div>
+
                     </div>
-                    <!---->
-                    <!-- End of User login -->
 
                 </div>
                 <!-- End Regular View-->
@@ -68,12 +67,16 @@
 </script>
 
 <style scoped>
+
+    .color-thing {
+        color: pink;
+    }
     .login {
         margin-top: 8px;
     }
 
     nav {
-        background-color: #252a33;
+        background-color: #42234F;
         border: none;
         border-radius: 0;
     }
@@ -82,23 +85,16 @@
         color: white;
     }
 
-    .navbar-brand {
-        font-family: 'Fjalla One', sans-serif;
-        font-size: 23px;
-    }
-
-    .glyphicon-fire {
-        font-size: 20px;
-        width: 30px;
-        color: #ec4858
-    }
-
     .mail-number {
         padding-right: 10px;
     }
 
     .navbar-brand {
-        font-family: 'Fjalla One', sans-serif;
-        font-size: 23px;
+        font-family: 'Lobster', cursive;
+        font-size: 30px;
+    }
+    .navbar-brand2 {
+        font-family: 'Francois One', sans-serif;
+        font-size: 17px;
     }
 </style>

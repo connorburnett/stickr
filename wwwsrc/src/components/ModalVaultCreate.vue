@@ -58,7 +58,7 @@
                 var vault = {
                     title: this.vault.title,
                     description: this.vault.description,
-                    owner: this.credentials._id,
+                    UserId: this.credentials._id,
                     ownername: this.credentials.email
                 }
                 this.$store.dispatch("createVault", vault)

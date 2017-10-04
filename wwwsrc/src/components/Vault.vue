@@ -1,6 +1,5 @@
 <template>
     <div>
-
         <div>{{vault.title}}</div>
         <div class="add-keep">
             <button type="button" class="btn btn-default" @click="showModal = true">Add a Keep</button>
@@ -18,12 +17,14 @@
 
 <script>
     import ModalAddKeep from './ModalAddKeep'
+    import Profile from './Profile'
     import keeps from './Keeps'
     export default {
         name: 'vault',
         components: {
-            keeps,
-            ModalAddKeep
+            ModalAddKeep,
+            Profile,
+            keeps
         },
         data() {
             return {

@@ -65,7 +65,7 @@
                 var keep = {
                     title: this.keep.title,
                     image: this.keep.imgurl,
-                    owner: this.credentials._id,
+                    UserId: this.credentials._id,
                     ownername: this.credentials.email
                 }
                 this.$store.dispatch("createKeep", keep)

@@ -5,11 +5,21 @@ let Keeps = require('../models/keep.js')
 module.exports = {
 
 	createKeeps: {
-		
+		path: '/keeps',
+		reqType: 'post',
+		method(req, res, next) {
+			keeps.create(req.body)
+			.then((keep) => {
+				return res.send(keep)
+			})
+			.catch((err) => {
+				return res.send({message:err})
+			})
+		}
 	},
 
 	getUserKeeps: {
-		path: '/home/userId/:term',
+		path: '/home/:userId/keeps',
 		reqType: 'get',
 		method(req, res, next) {
 			keeps.find({
@@ -28,7 +38,6 @@ module.exports = {
 				});
 		}
 	}
-
 }
 
 

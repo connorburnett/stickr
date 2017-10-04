@@ -67,6 +67,19 @@
 
 </script>
 
-<style>
+<style scoped>
+    h4 {
+        font-family: 'Francois One', sans-serif;
+        color: #42234f;
+    }
 
+    .box {
+        background-color: white;
+        border-radius: 5px;
+        border: 2px;
+        border-color: #42234f;
+        padding-bottom: 8px;
+        padding-top: 8px;
+        margin-top: 10px;
+    }
 </style>

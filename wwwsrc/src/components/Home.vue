@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="home">
         <h2>Here are some of the Sticks people have been posting.</h2>
         <div class="container">
             <div class="row">
@@ -27,5 +27,16 @@
 </script>
 
 <style>
+
+    h2 {
+        font-family: 'Francois One', sans-serif;
+        color: #42234f;
+    }
+
+    .home {
+        background-color: pink;
+        padding-top: 20px;
+        padding-bottom: 50px;
+    }
 
 </style>

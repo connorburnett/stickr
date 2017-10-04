@@ -3,21 +3,21 @@
         <div class="row">
             <div class="col-xs-9">
                 <h3>Your Sticks</h3>
-                <button class="btn btn-default" type="button" @click="showModal = true">Create a Stick</button>
+                <button class="btn btn-default" type="button" @click="showModal = true"><div class="stylebtn">Create a Stick</div></button>
             </div>
             <div class="col-xs-3">
                 <h3>Your Vaults</h3>
-                <button class="btn btn-default" type="button" @click="showVaultModal = true">Create a Vault</button>
+                <button class="btn btn-default" type="button" @click="showVaultModal = true"><div class="stylebtn">Create a Vault</div></button>
             </div>
         </div>
         <div class="row">
             <div class="col-xs-9">
                 <keeps></keeps>
             </div>
-            <div class="col-xs-3">
+            <div class="col-xs-3 vaultback">
                 <div class="vaults" v-for="vault in vaults">
                     <span @click="getVaults(vault._id)">
-                        <router-link :to="'/profile/'+vault._id">{{vault.title}}</router-link>
+                        <router-link :to="'/vault/' + vault._id"><div class="titlething">{{vault.title}}</div></router-link>
                     </span>
                 </div>
             </div>
@@ -84,8 +84,41 @@
             }
         }
     }
+
 </script>
 
 <style scoped>
+    .stylebtn {
+        font-family: 'Lobster', cursive;
+        font-size: 20px;
+        color: #42234F;
+    }
 
+    .titlething {
+        font-family: 'Francois One', sans-serif;
+        color: #42234f;
+        margin-top: 20px;
+        font-size: 16px;
+    }
+
+    h3 {
+        font-family: 'Francois One', sans-serif;
+        color: #42234f
+    }
+
+    .profile {
+        background-color: pink;
+        padding-top: 20px;
+        padding-bottom: 50px;
+    }
+
+    .vaults {
+        background-color: white;
+        border-radius: 3px;
+        border: 2px;
+        border-color: #42234f;
+        padding-bottom: 0px;
+        padding-top: 0px;
+        margin-top: 10px;
+    }
 </style>
