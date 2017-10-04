@@ -4,16 +4,41 @@ let Keeps = require('../models/keep.js')
 
 module.exports = {
 
+	createKeeps: {
+		
+	},
+
+	getUserKeeps: {
+		path: '/home/userId/:term',
+		reqType: 'get',
+		method(req, res, next) {
+			keeps.find({
+				owner: req.params.term,
+			})
+				.then((found) => {
+					//return res.send(200, found);
+					res.status(200).send(found);
+				}).catch((err) => {
+					// return res.send(418, {
+					// 	message: err
+					// })
+					return res.status(418).send({
+						message: err
+					});
+				});
+		}
+	}
+
 }
 
 
 function handleResponse(action, data, error) {
-  var response = {
-    action: action,
-    data: data
-  }
-  if (error) {
-    response.error = error
-  }
-  return response
+	var response = {
+		action: action,
+		data: data
+	}
+	if (error) {
+		response.error = error
+	}
+	return response
 }

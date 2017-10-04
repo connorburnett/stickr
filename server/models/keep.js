@@ -6,7 +6,8 @@ var schema = new mongoose.Schema({
   title: { type: String, required: true },
   description: { type: String },
   ImgUrl: { type: String, required: true },
-  UserId: { type: ObjectId, required: true }
+  UserId: { type: ObjectId, required: true },
+  owner: { type: ObjectId, ref: models.credentials.name, required: true}
 });
 
 module.exports = mongoose.model(models.keep.name, schema);

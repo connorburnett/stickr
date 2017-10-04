@@ -30,7 +30,7 @@
                     <div class="modal-footer">
                         <slot name="footer">
                             <div class="text-center">
-                                <form @submit="createKeep">
+                                <form @submit="createKeep()">
                                     <button type="submit" class="btn btn-default create-button" @click="exit">Create</button>
                                 </form>
                             </div>
