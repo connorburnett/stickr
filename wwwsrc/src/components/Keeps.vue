@@ -70,14 +70,14 @@
 <style scoped>
     h4 {
         font-family: 'Francois One', sans-serif;
-        color: #42234f;
+        color: #2B346B;
     }
 
     .box {
         background-color: white;
         border-radius: 5px;
         border: 2px;
-        border-color: #42234f;
+        border-color: #2B346B;
         padding-bottom: 8px;
         padding-top: 8px;
         margin-top: 10px;

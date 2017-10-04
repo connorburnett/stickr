@@ -109,11 +109,11 @@
   .titlefont {
     font-family: 'Lobster', cursive;
     font-size: 50px;
-    color: #42234F;
+    color: #2B346B;
   }
 
   .hello {
-    background-color: pink;
+    background-color: #FFB76A;
     padding-top: 50px;
     padding-bottom: 50px;
   }
@@ -121,12 +121,12 @@
   p {
     font-size: 25px;
     font-family: 'Francois One', sans-serif;
-    color: #42234f
+    color: #2B346B;
   }
 
   .stylebtn{
     font-family: 'Lobster', cursive;
     font-size: 20px;
-    color: #42234F;
+    color: #2B346B;
   }
 </style>

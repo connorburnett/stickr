@@ -25,7 +25,7 @@
                         <slot name="footer">
                             <div class="text-center">
                                 <form @submit="createVault()">
-                                    <button type="submit" class="btn btn-default create-button" @click="exit">Create</button>
+                                    <button type="submit" class="btn btn-default create-button" @click="exit"><div class="stylebtn">Create</div></button>
                                 </form>
                             </div>
                         </slot>
@@ -156,12 +156,16 @@
     }
 
     h4 {
-        font-family: 'Fjalla One', sans-serif;
-        text-align: center;
+        font-family: 'Francois One', sans-serif;
+        color: #2B346B;
     }
 
     .create-button {
         text-align: center;
+    }
+
+    label {
+        color: orange;
     }
 
     .align-everything {
@@ -170,5 +174,11 @@
 
     .align-right {
         padding-left: 65px;
+    }
+
+    .stylebtn {
+        font-family: 'Lobster', cursive;
+        font-size: 20px;
+        color: #2B346B;
     }
 </style>

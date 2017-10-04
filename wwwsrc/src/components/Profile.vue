@@ -1,29 +1,31 @@
 <template>
-    <div class="profile container">
-        <div class="row">
-            <div class="col-xs-9">
-                <h3>Your Sticks</h3>
-                <button class="btn btn-default" type="button" @click="showModal = true"><div class="stylebtn">Create a Stick</div></button>
-            </div>
-            <div class="col-xs-3">
-                <h3>Your Vaults</h3>
-                <button class="btn btn-default" type="button" @click="showVaultModal = true"><div class="stylebtn">Create a Vault</div></button>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-9">
-                <keeps></keeps>
-            </div>
-            <div class="col-xs-3 vaultback">
-                <div class="vaults" v-for="vault in vaults">
-                    <span @click="getVaults(vault._id)">
-                        <router-link :to="'/vault/' + vault._id"><div class="titlething">{{vault.title}}</div></router-link>
-                    </span>
+    <div class="profile">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-9">
+                    <h3>Your Sticks</h3>
+                    <button class="btn btn-default" type="button" @click="showModal = true"><div class="stylebtn">Create a Stick</div></button>
+                </div>
+                <div class="col-xs-3">
+                    <h3>Your Vaults</h3>
+                    <button class="btn btn-default" type="button" @click="showVaultModal = true"><div class="stylebtn">Create a Vault</div></button>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-xs-9">
+                    <keeps></keeps>
+                </div>
+                <div class="col-xs-3 vaultback">
+                    <div class="vaults" v-for="vault in vaults">
+                        <span @click="getVaults(vault._id)">
+                        <router-link :to="'/vault/' + vault._id"><div class="titlething">{{vault.title}}</div></router-link>
+                    </span>
+                    </div>
+                </div>
+            </div>
+            <modal-keep-create v-if="showModal" @close="createKeep"></modal-keep-create>
+            <modal-vault-create v-if="showVaultModal" @close="createVault"></modal-vault-create>
         </div>
-        <modal-keep-create v-if="showModal" @close="createKeep"></modal-keep-create>
-        <modal-vault-create v-if="showVaultModal" @close="createVault"></modal-vault-create>
     </div>
 
 </template>
@@ -91,28 +93,28 @@
     .stylebtn {
         font-family: 'Lobster', cursive;
         font-size: 20px;
-        color: #42234F;
+        color: #2B346B;
     }
 
     .titlething {
         font-family: 'Francois One', sans-serif;
-        color: #42234f;
+        color: #2B346B;
         margin-top: 20px;
         font-size: 16px;
     }
 
     h3 {
         font-family: 'Francois One', sans-serif;
-        color: #42234f
+        color: #2B346B;
     }
 
     .profile {
-        background-color: pink;
+        background-color: #FFB76A;
         padding-top: 20px;
         padding-bottom: 50px;
     }
 
-    .vaults {
+    /* .vaults {
         background-color: white;
         border-radius: 3px;
         border: 2px;
@@ -120,5 +122,5 @@
         padding-bottom: 0px;
         padding-top: 0px;
         margin-top: 10px;
-    }
+    } */
 </style>

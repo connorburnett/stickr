@@ -69,14 +69,14 @@
 <style scoped>
 
     .color-thing {
-        color: pink;
+        color: orange;
     }
     .login {
         margin-top: 8px;
     }
 
     nav {
-        background-color: #42234F;
+        background-color: #2B346B;
         border: none;
         border-radius: 0;
     }

@@ -30,11 +30,11 @@
 
     h2 {
         font-family: 'Francois One', sans-serif;
-        color: #42234f;
+        color: #2B346B;
     }
 
     .home {
-        background-color: pink;
+        background-color: #FFB76A;
         padding-top: 20px;
         padding-bottom: 50px;
     }
