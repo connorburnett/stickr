@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="totalnav">
         <nav class="navbar navbar-default">
             <div class="container">
                 <!-- Mobile Display NavBar -->
@@ -11,8 +11,11 @@
                           <span class="icon-bar"></span>
                           <span class="icon-bar"></span>
                         </button> -->
-                    <div>
+                    <div v-if="credentials.email != null">
                         <router-link class="navbar-brand" :to="{name: 'Home'}"><div class="color-thing">Stickr</div></router-link>
+                    </div>
+                    <div v-else>
+                        <router-link class="navbar-brand" :to="{name: 'Hello'}"><div class="color-thing">Stickr</div></router-link>
                     </div>
                 </div>
 
@@ -85,10 +88,6 @@
         color: white;
     }
 
-    .mail-number {
-        padding-right: 10px;
-    }
-
     .navbar-brand {
         font-family: 'Lobster', cursive;
         font-size: 30px;
@@ -97,4 +96,8 @@
         font-family: 'Francois One', sans-serif;
         font-size: 17px;
     }
+    .totalnav {
+        margin-bottom: -20px;
+    }
+    
 </style>

@@ -161,10 +161,6 @@
         margin-top: -30px;
     }
 
-    .form-control {
-        max-width: 200px;
-    }
-
     .glyphicon-remove {
         float: right;
         margin-left: 10000px;

@@ -6,17 +6,28 @@
                     <div class="box">
                         <img :src="keep.imgurl" style="max-width:150px">
                         <h4 class="keep-description">{{keep.title}}</h4>
+                        <div class="add-keep">
+                            <button type="button" class="btn btn-default" @click="showModal = true"><div class="stylebtn">Add to Vault</div></button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+        <modal-add-keep v-if="showModal" @close="addKeep"></modal-add-keep>
     </div>
 </template>
 
 <script>
+    import ModalAddKeep from './ModalAddKeep'
     export default {
         name: 'keeps',
         components: {
+            ModalAddKeep
+        },
+        data() {
+            return {
+                showModal: false
+            }
         },
         mounted() {
             this.$store.dispatch("getUserKeeps", this.$route.params.userid)
@@ -44,6 +55,9 @@
             //     this.$store.dispatch("deleteSong", project)
             //     this.$emit('close')
             // }
+            addKeep(keep) {
+                this.showModal = false
+            }
         },
         computed: {
             userId() {
@@ -81,5 +95,10 @@
         padding-bottom: 8px;
         padding-top: 8px;
         margin-top: 10px;
+    }
+    .stylebtn {
+        font-family: 'Lobster', cursive;
+        font-size: 15px;
+        color: #2B346B;
     }
 </style>

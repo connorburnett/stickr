@@ -22,7 +22,8 @@ var store = new vuex.Store({
     credentials: {},
     viewUser: {},
     home: {},
-    vaults: [],
+    vaults: [{ title: '' }],
+    activeVault: {},
     keeps: {},
     keepView: {}
   },
@@ -121,7 +122,13 @@ var store = new vuex.Store({
         commit('setKeepView', res.data.data)
       })
     },
-
+    getKeepsByVault({ commit, dispatch }, vaultId) {
+      api('vaults/' + vaultId + '/keeps')
+      .then(res => {
+        commit('setKeeps', res.data.data)
+      })
+    },
+ 
     // profile and vault actions
 
     getVaults({ commit, dispatch }, userid) {

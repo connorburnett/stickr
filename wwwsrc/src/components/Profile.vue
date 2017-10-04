@@ -2,20 +2,20 @@
     <div class="profile">
         <div class="container">
             <div class="row">
-                <div class="col-xs-9">
+                <div class="col-xs-10">
                     <h3>Your Sticks</h3>
                     <button class="btn btn-default" type="button" @click="showModal = true"><div class="stylebtn">Create a Stick</div></button>
                 </div>
-                <div class="col-xs-3">
+                <div class="col-xs-2">
                     <h3>Your Vaults</h3>
                     <button class="btn btn-default" type="button" @click="showVaultModal = true"><div class="stylebtn">Create a Vault</div></button>
                 </div>
             </div>
             <div class="row">
-                <div class="col-xs-9">
+                <div class="col-xs-10">
                     <keeps></keeps>
                 </div>
-                <div class="col-xs-3 vaultback">
+                <div class="col-xs-2 vaultback">
                     <div class="vaults" v-for="vault in vaults">
                         <span @click="getVaults(vault._id)">
                         <router-link :to="'/vault/' + vault._id"><div class="titlething">{{vault.title}}</div></router-link>
