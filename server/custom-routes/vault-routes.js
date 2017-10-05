@@ -23,7 +23,7 @@ module.exports = {
     reqType: 'get',
     method(req, res, next) {
       let action = 'Find User Vaults'
-      vaults.find({ creatorId: req.session.uid })
+      vaults.find({ userId: req.session.uid })
         .then(vaults => {
           res.send(handleResponse(action, vaults))
         }).catch(error => {

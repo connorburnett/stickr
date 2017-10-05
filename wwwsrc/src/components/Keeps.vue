@@ -4,7 +4,7 @@
             <div class="col-xs-3">
                 <div class="keep">
                     <div class="box">
-                        <img :src="keep.imgurl" style="max-width:150px">
+                        <img :src="keep.imgurl" style="max-width:200px">
                         <h4 class="keep-description">{{keep.title}}</h4>
                         <div class="add-keep">
                             <button type="button" class="btn btn-default" @click="showModal = true"><div class="stylebtn">Add to Vault</div></button>

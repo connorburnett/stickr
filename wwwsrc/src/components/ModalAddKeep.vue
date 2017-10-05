@@ -8,7 +8,7 @@
                         <div class="header">
                             <button class="exit btn btn-default glyphicon glyphicon-remove" @click="exit"></button>
                             <div>
-                                <h4>Add This Keep to a Vault</h4>
+                                <h4>Add This Stick to a Vault</h4>
                             </div>
                         </div>
                     </div>
