@@ -6,6 +6,7 @@ var schema = new mongoose.Schema({
 	title: { type: String, required: true },
 	description: { type: String },
 	UserId: { type: ObjectId, required: true },
+	keeps: { type: Array, default: [] }
 });
 
 module.exports = mongoose.model(models.vault.name, schema);
