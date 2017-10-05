@@ -4,7 +4,7 @@
             <div class="col-xs-3">
                 <div class="keep">
                     <div class="box">
-                        <img :src="keep.imgurl" style="max-width:200px">
+                        <img :src="keep.imgurl" style="max-width:200px; max-height: 200px;">
                         <h4 class="keep-description">{{keep.title}}</h4>
                         <div class="add-keep">
                             <button type="button" class="btn btn-default" @click="showModal = true"><div class="stylebtn">Add to Vault</div></button>
@@ -29,14 +29,14 @@
                 showModal: false
             }
         },
-        mounted() {
-            this.$store.dispatch("getUserKeeps", this.$route.params.userid)
-        },
-        watch: {
-            userId: function () {
-                this.$store.dispatch("getUserKeeps", this.$route.params.userid)
-            }
-        },
+        // mounted() {
+        //     this.$store.dispatch("getUserKeeps", this.$route.params.userid)
+        // },
+        // watch: {
+        //     userId: function () {
+        //         this.$store.dispatch("getUserKeeps", this.$route.params.userid)
+        //     }
+        // },
         methods: {
             // updateSong(song) {
             //     this.showModal = false

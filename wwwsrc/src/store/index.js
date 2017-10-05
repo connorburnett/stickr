@@ -30,7 +30,6 @@ var store = new vuex.Store({
 
   mutations: {
     setUser(state, data) {
-      console.log(data)
       state.credentials = data
     },
 
@@ -107,8 +106,9 @@ var store = new vuex.Store({
     //   })
     // },
 
-    getUserKeeps({ commit, dispatch }, userId) {
-      api("keeps").then(res => {
+    getUserKeeps({ commit, dispatch }, userid) {
+      console.log(userid)
+      api("keeps/" + userid).then(res => {
         commit('setUserKeeps', res.data.data)
       })
     },

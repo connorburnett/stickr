@@ -5,10 +5,10 @@ let Keeps = require('../models/keep.js')
 module.exports = {
 
 	createKeeps: {
-		path: '/keeps',
+		path: '/keeps/:userId',
 		reqType: 'post',
 		method(req, res, next) {
-			keeps.create(req.body)
+			keeps.create(req.params.userId)
 				.then((keep) => {
 					return res.send(keep)
 				})
@@ -44,7 +44,7 @@ module.exports = {
 		reqType: 'get',
 		method(req, res, next) {
 			let action = 'Find User Keeps'
-			keeps.find({ userId: req.session.uid })
+			keeps.find({ userId: req.params.userId })
 				.then(keeps => {
 					res.send(handleResponse(action, keeps))
 				}).catch(error => {
