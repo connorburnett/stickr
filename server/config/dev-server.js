@@ -35,7 +35,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use('*', logger)
 app.use('*', cors(corsOptions))
 app.use('/', Auth)
-app.use(express.static(__dirname+'/../../www/dist'))
+app.use(express.static(__dirname+'/../../wwwroot'))
 
 // LOCKS API TO REQUIRE USER AUTH
 app.use(Validate)
