@@ -18,26 +18,40 @@ module.exports = {
 		}
 	},
 
+	// getUserKeeps: {
+	// 	path: '/keeps',
+	// 	reqType: 'get',
+	// 	method(req, res, next) {
+	// 		keeps.find({
+	// 			owner: req.params.term,
+	// 		})
+	// 			.then((found) => {
+	// 				//return res.send(200, found);
+	// 				res.status(200).send(found);
+	// 			}).catch((err) => {
+	// 				// return res.send(418, {
+	// 				// 	message: err
+	// 				// })
+	// 				return res.status(418).send({
+	// 					message: err
+	// 				});
+	// 			});
+	// 	}
+	// },
+
 	getUserKeeps: {
-		path: '/home/:userId/keeps',
+		path: '/keeps',
 		reqType: 'get',
 		method(req, res, next) {
-			keeps.find({
-				owner: req.params.term,
+		  let action = 'Find User Vaults'
+		  keeps.find({ creatorId: req.session.uid })
+			.then(keeps => {
+			  res.send(handleResponse(action, keeps))
+			}).catch(error => {
+			  return next(handleResponse(action, null, error))
 			})
-				.then((found) => {
-					//return res.send(200, found);
-					res.status(200).send(found);
-				}).catch((err) => {
-					// return res.send(418, {
-					// 	message: err
-					// })
-					return res.status(418).send({
-						message: err
-					});
-				});
 		}
-	}
+	  },
 }
 
 

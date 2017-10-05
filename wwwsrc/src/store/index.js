@@ -108,7 +108,7 @@ var store = new vuex.Store({
     // },
 
     getUserKeeps({ commit, dispatch }, userid) {
-      api("/keeps/").then(res => {
+      api("keeps").then(res => {
         commit('setUserKeeps', res.data.data)
       })
     },
@@ -131,13 +131,13 @@ var store = new vuex.Store({
  
     // profile and vault actions
 
-    getVaults({ commit, dispatch }, userid) {
+    getVaults({ commit, dispatch }) {
       api("vaults").then(res => {
           commit('setVaults', res.data.data)
         })
     },
     getVault({ commit, dispatch }, id) {
-      api(`${userid}/vaults/${vaultid}`)
+      api('vaults/' + id)
         .then(res => {
           commit('setActiveVault', res.data.data)
         })

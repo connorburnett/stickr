@@ -15,14 +15,16 @@
 
                     <div class="modal-body">
                         <slot name="body">
-                            <div class="align-everything">
+                            <!-- <div class="align-everything">
                                 <label>Upload Photo: </label>
                                 <input class="align-right" type="file" v-on:change="showSuccess">
                                 <i v-if="uploading" class="fa fa-spinner fa-spin"></i>
+                            </div> -->
+                            <div class="align-everything">
+                                <label>Image URL: </label><input class="form-control" type="text" placeholder="" v-model="keep.imgurl">
                             </div>
                             <div class="align-everything">
-                                <label>Caption: </label><input class="form-control" type="text" placeholder=""
-                                    v-model="keep.title">
+                                <label>Caption: </label><input class="form-control" type="text" placeholder="" v-model="keep.title">
                             </div>
                         </slot>
                     </div>
@@ -49,8 +51,9 @@
             return {
                 keep: {
                     title: "",
+                    imgurl: ""
                 },
-                uploading: false,
+                //uploading: false,
                 showModal: true
             }
         },
@@ -64,21 +67,11 @@
             createKeep() {
                 var keep = {
                     title: this.keep.title,
-                    image: this.keep.imgurl,
+                    imgurl: this.keep.imgurl,
                     UserId: this.credentials._id,
                     ownername: this.credentials.email
                 }
                 this.$store.dispatch("createKeep", keep)
-            },
-            showSuccess: function (event) {
-                this.uploading = true
-                let file = event.target.files[0]
-                event.stopPropagation()
-                event.preventDefault()
-                fireStore.uploadToFb(this.credentials._id, file).then(url => {
-                    this.uploading = false
-                    this.song.image = url
-                })
             }
         },
         computed: {
@@ -87,6 +80,7 @@
             }
         }
     }
+
 </script>
 <style scoped>
     .modal-mask {
@@ -170,7 +164,6 @@
     h4 {
         font-family: 'Francois One', sans-serif;
         color: #2B346B;
-    
     }
 
     .create-button {
@@ -184,9 +177,11 @@
     .align-right {
         padding-left: 65px;
     }
+
     label {
         color: orange;
     }
+
     .stylebtn {
         font-family: 'Lobster', cursive;
         font-size: 20px;

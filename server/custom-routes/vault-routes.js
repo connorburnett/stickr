@@ -22,7 +22,7 @@ module.exports = {
     path: '/vaults',
     reqType: 'get',
     method(req, res, next) {
-      let action = 'Find User Boards'
+      let action = 'Find User Vaults'
       vaults.find({ creatorId: req.session.uid })
         .then(vaults => {
           res.send(handleResponse(action, vaults))
@@ -30,7 +30,7 @@ module.exports = {
           return next(handleResponse(action, null, error))
         })
     }
-  },
+  }
 
 }
 

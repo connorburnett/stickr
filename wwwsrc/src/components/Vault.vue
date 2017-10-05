@@ -1,6 +1,8 @@
 <template>
     <div class="totalvault">
-        <h3>{{vault.title}}</h3>
+        <!-- <div v-for="vault in vaults"> -->
+            <h3>{{vault.title}}</h3>
+        <!-- </div> -->
 
         <div class="container">
             <div class="row">
@@ -16,6 +18,7 @@
     import Profile from './Profile'
     import keeps from './Keeps'
     export default {
+        props: [''],
         name: 'vault',
         components: {
             Profile,
@@ -23,6 +26,9 @@
         },
         data() {
             return {
+                credentials: {
+                    title: ''
+                }
             }
         },
         mounted() {
@@ -40,9 +46,9 @@
             }
         },
         methods: {
-            getVaults(userid) {
-                this.$store.dispatch('getVaults', userid)
-            }
+            // getVaults(userid) {
+            //     this.$store.dispatch('getVaults', userid)
+            // }
         }
 
     }
@@ -59,6 +65,11 @@
     .stylebtn {
         font-family: 'Lobster', cursive;
         font-size: 20px;
+        color: #2B346B;
+    }
+
+    h3 {
+        font-family: 'Francois One', sans-serif;
         color: #2B346B;
     }
 </style>
