@@ -5,7 +5,7 @@ let ObjectId = mongoose.Schema.ObjectId
 var schema = new mongoose.Schema({
 	title: { type: String, required: true },
 	description: { type: String },
-	UserId: { type: ObjectId, required: true },
+	userId: { type: ObjectId, required: true },
 	keeps: { type: Array, default: [] }
 });
 

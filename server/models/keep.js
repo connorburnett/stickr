@@ -6,7 +6,7 @@ var schema = new mongoose.Schema({
   title: { type: String, required: true },
   description: { type: String },
   imgurl: { type: String, required: true },
-  UserId: { type: ObjectId, required: true },
+  userId: { type: ObjectId, required: true },
   //owner: { type: ObjectId, ref: models.credentials.name, required: true },
   vaultId: { type: ObjectId }
 });

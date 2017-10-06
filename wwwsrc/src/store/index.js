@@ -38,7 +38,6 @@ var store = new vuex.Store({
       state.viewUser = data
     },
     setUserKeeps(state, data) {
-      console.log(data)
       state.keeps = data
     },
 
@@ -100,64 +99,63 @@ var store = new vuex.Store({
 
     },
 
-    // profile and keep actions
-
-    // getUser({ commit, dispatch }, userid) {
-    //   api(`account/${userid}`).then(res => {
-    //     commit('setUserView', res.data.data)
-    //   })
-    // },
+    // user gets
 
     getUserKeeps({ commit, dispatch }, userid) {
-      console.log(userid)
+      //console.log(userid)
       api("userkeeps/" + userid).then(res => {
         commit('setUserKeeps', res.data.data)
       })
     },
+    getVaults({ commit, dispatch }, userid) {
+      api("uservaults/" + userid).then(res => {
+        commit('setVaults', res.data.data)
+      })
+    },
+
+    // public keep get
+
     getKeeps({ commit, dispatch }) {
       api("keeps").then(res => {
         commit('setUserKeeps', res.data.data)
       })
     },
-    keepView({ commit, dispatch }, keepid) {
-      api(`keeps/${keepid}`).then(res => {
-        commit('setKeepView', res.data.data)
-      })
-    },
+    // keepView({ commit, dispatch }, keepid) {
+    //   api(`keeps/${keepid}`).then(res => {
+    //     commit('setKeepView', res.data.data)
+    //   })
+    // },
+
+    // get keeps by vault
+
     getKeepsByVault({ commit, dispatch }, vaultid) {
-      api('vaultkeeps/' + vaultid).then(res => {
+      api('vaults/' + vaultid + '/keeps').then(res => {
         commit('setUserKeeps', res.data.data)
       })
     },
- 
-    // profile and vault actions
 
-    getVaults({ commit, dispatch }) {
-      api("vaults").then(res => {
-          commit('setVaults', res.data.data)
-        })
-    },
+    // get a vault
+
     getVault({ commit, dispatch }, id) {
-      api('vaults/' + id)
-        .then(res => {
-          commit('setActiveVault', res.data.data)
-        })
+      api('vaults/' + id).then(res => {
+        commit('setActiveVault', res.data.data)
+      })
     },
 
     // create keeps
 
     createKeep({ commit, dispatch }, keep) {
-      api.post("/keeps/", keep).then(res => {
-        dispatch('getUserKeeps', res.data.data.UserId)
-        console.log(res.data.data.UserId)
+      api.post("keeps/", keep).then(res => {
+        dispatch('getUserKeeps')
+        //console.log(res.data.data.UserId)
       })
     },
 
     // create vaults
 
     createVault({ commit, dispatch }, vault) {
-      api.post("/vaults/", vault).then(res => {
-        dispatch('getVaults', res.data.data.UserId)
+      api.post("vaults/", vault).then(res => {
+        dispatch('getVaults')
         //res.data.owner
       })
     }

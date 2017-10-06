@@ -18,35 +18,13 @@ module.exports = {
 		}
 	},
 
-	// getUserKeeps: {
-	// 	path: '/keeps',
-	// 	reqType: 'get',
-	// 	method(req, res, next) {
-	// 		keeps.find({
-	// 			owner: req.params.term,
-	// 		})
-	// 			.then((found) => {
-	// 				//return res.send(200, found);
-	// 				res.status(200).send(found);
-	// 			}).catch((err) => {
-	// 				// return res.send(418, {
-	// 				// 	message: err
-	// 				// })
-	// 				return res.status(418).send({
-	// 					message: err
-	// 				});
-	// 			});
-	// 	}
-	// },
-
 	getUserKeeps: {
 		path: '/userkeeps/:userId',
 		reqType: 'get',
 		method(req, res, next) {
 			let action = 'Find User Keeps'
-			Keeps.find({ UserId: req.params.UserId })
+			Keeps.find({ userId: req.params.userId })
 				.then(keeps => {
-					console.log(UserId)
 					res.send(handleResponse(action, keeps))
 				}).catch(error => {
 					return next(handleResponse(action, null, error))
@@ -59,7 +37,7 @@ module.exports = {
 		reqType: 'get',
 		method(req, res, next) {
 			let action = 'Find Keeps'
-			keeps.find({ userId: req.session.uid })
+			Keeps.find({ userId: req.session.uid })
 				.then(keeps => {
 					res.send(handleResponse(action, keeps))
 				}).catch(error => {

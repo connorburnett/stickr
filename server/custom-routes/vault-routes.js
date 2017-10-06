@@ -5,10 +5,10 @@ let Vaults = require('../models/vault.js')
 module.exports = {
 
 	createVaults: {
-		path: '/vaults',
+		path: '/vaults/:userId',
 		reqType: 'post',
 		method(req, res, next) {
-			vaults.create(req.body)
+			vaults.create(req.params.userId)
 				.then((vault) => {
 					return res.send(vault)
 				})
@@ -19,11 +19,11 @@ module.exports = {
 	},
   
   userVaults: {
-    path: '/vaults',
+    path: '/uservaults/:userId',
     reqType: 'get',
     method(req, res, next) {
       let action = 'Find User Vaults'
-      vaults.find({ userId: req.session.uid })
+      Vaults.find({ userId: req.params.userId })
         .then(vaults => {
           res.send(handleResponse(action, vaults))
         }).catch(error => {
