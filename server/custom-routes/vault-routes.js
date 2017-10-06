@@ -30,7 +30,7 @@ module.exports = {
           return next(handleResponse(action, null, error))
         })
     }
-  }
+	}
 
 }
 

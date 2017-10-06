@@ -8,7 +8,7 @@ var schema = new mongoose.Schema({
   imgurl: { type: String, required: true },
   UserId: { type: ObjectId, required: true },
   //owner: { type: ObjectId, ref: models.credentials.name, required: true },
-  VaultId: { type: ObjectId }
+  vaultId: { type: ObjectId }
 });
 
 module.exports = mongoose.model(models.keep.name, schema);

@@ -27,17 +27,17 @@ export default new Router({
     {
       path: '/profile/:userid',
       name: 'Profile',
-      component: Profile,
-      children: [{
-        path: 'createkeep',
-        name: 'modal',
-        component: ModalKeepCreate
-      }],
-      children2: [{
-        path: 'createvault',
-        name: 'modal',
-        component: ModalVaultCreate
-      }]
+      component: Profile
+      // children: [{
+      //   path: 'createkeep',
+      //   name: 'modal',
+      //   component: ModalKeepCreate
+      // }],
+      // children2: [{
+      //   path: 'createvault',
+      //   name: 'modal',
+      //   component: ModalVaultCreate
+      // }]
     },
     {
       path: '/vault/:vaultId',

@@ -18,9 +18,9 @@
         components: {
             keeps
         },
-        // mounted() {
-        //     this.$store.dispatch("getKeeps", { type: "any", query: "" })
-        // },
+        mounted() {
+            this.$store.dispatch("getKeeps", this.$route.params.userid)
+        },
 
     }
 

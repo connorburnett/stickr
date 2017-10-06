@@ -40,12 +40,13 @@ module.exports = {
 	// },
 
 	getUserKeeps: {
-		path: '/keeps/:userId',
+		path: '/userkeeps/:userId',
 		reqType: 'get',
 		method(req, res, next) {
 			let action = 'Find User Keeps'
-			keeps.find({ userId: req.params.userId })
+			Keeps.find({ UserId: req.params.UserId })
 				.then(keeps => {
+					console.log(UserId)
 					res.send(handleResponse(action, keeps))
 				}).catch(error => {
 					return next(handleResponse(action, null, error))
@@ -59,6 +60,20 @@ module.exports = {
 		method(req, res, next) {
 			let action = 'Find Keeps'
 			keeps.find({ userId: req.session.uid })
+				.then(keeps => {
+					res.send(handleResponse(action, keeps))
+				}).catch(error => {
+					return next(handleResponse(action, null, error))
+				})
+		}
+	},
+	
+	getKeepsByVault: {
+		path: '/vaultkeeps/:vaultId',
+		reqType: 'get',
+		method(req, res, next) {
+			let action = 'Find Vault Keeps'
+			Keeps.find({ vaultId: req.params.vaultId })
 				.then(keeps => {
 					res.send(handleResponse(action, keeps))
 				}).catch(error => {

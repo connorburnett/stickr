@@ -56,6 +56,7 @@
         mounted() {
             //this.$store.dispatch("getUser", this.$route.params.userid)
             this.$store.dispatch("getUserKeeps", this.$route.params.userid)
+            console.log(this.$route.params.userid)
             this.$store.dispatch("getVaults", this.$route.params.userid)
         },
         methods: {

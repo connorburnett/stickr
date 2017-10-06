@@ -4,13 +4,13 @@ import vuex from 'vuex'
 import router from '../router'
 
 let api = axios.create({
-  baseURL: 'http://stickrsite.herokuapp.com/api/',
+  baseURL: 'http://localhost:3000/api/',
   timeout: 10000,
   withCredentials: true
 })
 
 let auth = axios.create({
-  baseURL: 'http://stickrsite.herokuapp.com/',
+  baseURL: 'http://localhost:3000/',
   timeout: 2000,
   withCredentials: true
 })
@@ -24,7 +24,7 @@ var store = new vuex.Store({
     home: {},
     vaults: [{ title: '' }],
     activeVault: {},
-    keeps: {},
+    keeps: [],
     keepView: {}
   },
 
@@ -38,6 +38,7 @@ var store = new vuex.Store({
       state.viewUser = data
     },
     setUserKeeps(state, data) {
+      console.log(data)
       state.keeps = data
     },
 
@@ -109,7 +110,7 @@ var store = new vuex.Store({
 
     getUserKeeps({ commit, dispatch }, userid) {
       console.log(userid)
-      api("keeps").then(res => {
+      api("userkeeps/" + userid).then(res => {
         commit('setUserKeeps', res.data.data)
       })
     },
@@ -123,10 +124,9 @@ var store = new vuex.Store({
         commit('setKeepView', res.data.data)
       })
     },
-    getKeepsByVault({ commit, dispatch }, vaultId) {
-      api('vaults/' + vaultId + '/keeps')
-      .then(res => {
-        commit('setKeeps', res.data.data)
+    getKeepsByVault({ commit, dispatch }, vaultid) {
+      api('vaultkeeps/' + vaultid).then(res => {
+        commit('setUserKeeps', res.data.data)
       })
     },
  
@@ -148,7 +148,8 @@ var store = new vuex.Store({
 
     createKeep({ commit, dispatch }, keep) {
       api.post("/keeps/", keep).then(res => {
-        dispatch('getKeeps', res.data.owner)
+        dispatch('getUserKeeps', res.data.data.UserId)
+        console.log(res.data.data.UserId)
       })
     },
 
@@ -156,7 +157,8 @@ var store = new vuex.Store({
 
     createVault({ commit, dispatch }, vault) {
       api.post("/vaults/", vault).then(res => {
-        dispatch('getVaults', res.data.owner)
+        dispatch('getVaults', res.data.data.UserId)
+        //res.data.owner
       })
     }
   }
